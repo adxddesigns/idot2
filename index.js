@@ -67,7 +67,7 @@ function getRandom(arr) {
 // ─── Event: Ready ─────────────────────────────────────────────────────────────
 client.once('ready', () => {
   console.log(`✅ Idot 2 is online as ${client.user.tag}`);
-  client.user.setActivity('/help | v1.0.0 :confetti:', { type: 3 }); // WATCHING
+  client.user.setActivity('/help | v1.0.0', { type: 3 }); // WATCHING
 });
 
 // ─── Event: Interaction ───────────────────────────────────────────────────────
