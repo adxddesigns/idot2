@@ -135,7 +135,7 @@ function buildLanguageMenu(page = 0) {
 // ─── Event: Ready ─────────────────────────────────────────────────────────────
 client.once('ready', () => {
   console.log(`✅ Idot 2 is online as ${client.user.tag}`);
-  client.user.setActivity('/help | v0.0.1', { type: 3 });
+  client.user.setActivity('/help | v1.2.0 ; Language Support', { type: 3 });
 });
 
 // ─── Event: Interaction ───────────────────────────────────────────────────────
@@ -237,10 +237,11 @@ client.on('interactionCreate', async (interaction) => {
     await interaction.deferReply();
 
     const bodyText = [
-      '**Version:** `v0.0.1`',
-      '**Status:** Pre-release',
+      '**Version:** `v1.2.0`',
+      '**Status:** Multilingual Support',
       '',
-      'Idot 2 is the current predecessor to the original **Idot Bot** — the beloved, chaotic, roast machine that thousands of servers called home.',
+      '***V1.2.0***: Added Multilingual Support with over 50+ Languages for each command! Each command also translates with each respective language.'
+      '***V1.1.0***: Fixed Discord API issue enabling the bot to actually function and hosting to run smoother',
       '',
       'The legend continues. The bar is low. We will limbo under it.',
     ].join('\n');
