@@ -240,8 +240,8 @@ client.on('interactionCreate', async (interaction) => {
       '**Version:** `v1.2.0`',
       '**Status:** Multilingual Support',
       '',
-      '***V1.2.0***: Added Multilingual Support with over 50+ Languages for each command! Each command also translates with each respective language.'
-      '***V1.1.0***: Fixed Discord API issue enabling the bot to actually function and hosting to run smoother',
+      '***V1.2.0*** Added Multilingual Support with over 50+ Languages for each command! Each command also translates with each respective language.'
+      '***V1.1.0*** Fixed Discord API issue enabling the bot to actually function and hosting to run smoother',
       '',
       'The legend continues. The bar is low. We will limbo under it.',
     ].join('\n');
