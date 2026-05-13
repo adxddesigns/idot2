@@ -284,7 +284,7 @@ client.on('interactionCreate', async (interaction) => {
 
     const title = await translate('📖 Idot 2 — Command List', langCode);
     const desc = await translate("Here's everything I can do. Don't expect much.", langCode);
-    const footer = await translate('Idot 2 v0.0.1 • Predecessor to the legendary Idot Bot', langCode);
+    const footer = await translate('Idot 2 v1.2.0 • Predecessor to the legendary Idot Bot', langCode);
 
     const embed = new EmbedBuilder()
       .setColor(0x57F287)
