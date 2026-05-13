@@ -63,6 +63,11 @@ const commands = [
   new SlashCommandBuilder()
     .setName('help')
     .setDescription('List of all Idot 2 commands'),
+
+  new SlashCommandBuilder()
+    .setName('language')
+    .setDescription('Set your preferred language for Idot 2 responses'),
+  
 ].map(cmd => cmd.toJSON());
 
 // ─── Register Commands ────────────────────────────────────────────────────────
@@ -86,6 +91,50 @@ function getRandom(arr) {
   return arr[Math.floor(Math.random() * arr.length)];
 }
 
+function buildLanguageMenu(page = 0) {
+  const langs = getLanguagePage(page);
+  const totalPages = getTotalPages();
+ 
+  const select = new StringSelectMenuBuilder()
+    .setCustomId(`lang_select_${page}`)
+    .setPlaceholder('Choose your language...')
+    .addOptions(
+      langs.map(l => ({
+        label: `${l.flag} ${l.name}`,
+        value: l.code,
+        description: `Set language to ${l.name}`,
+      }))
+    );
+ 
+  const row = new ActionRowBuilder().addComponents(select);
+  const components = [row];
+ 
+  if (totalPages > 1) {
+    const prevBtn = new ButtonBuilder()
+      .setCustomId(`lang_page_${page - 1}`)
+      .setLabel('◀ Previous')
+      .setStyle(ButtonStyle.Secondary)
+      .setDisabled(page === 0);
+ 
+    const nextBtn = new ButtonBuilder()
+      .setCustomId(`lang_page_${page + 1}`)
+      .setLabel('Next ▶')
+      .setStyle(ButtonStyle.Secondary)
+      .setDisabled(page >= totalPages - 1);
+ 
+    const pageLabel = new ButtonBuilder()
+      .setCustomId('lang_page_label')
+      .setLabel(`Page ${page + 1} of ${totalPages}`)
+      .setStyle(ButtonStyle.Primary)
+      .setDisabled(true);
+ 
+    const btnRow = new ActionRowBuilder().addComponents(prevBtn, pageLabel, nextBtn);
+    components.push(btnRow);
+  }
+ 
+  return components;
+}
+
 // ─── Event: Ready ─────────────────────────────────────────────────────────────
 client.once('ready', () => {
   console.log(`✅ Idot 2 is online as ${client.user.tag}`);
@@ -98,6 +147,34 @@ client.on('interactionCreate', async (interaction) => {
 
   const { commandName, user } = interaction;
 
+// ── Language Select Menu ───────────────────────────────────────────────────
+  if (interaction.isStringSelectMenu() && interaction.customId.startsWith('lang_select_')) {
+    const selectedCode = interaction.values[0];
+    const lang = SUPPORTED_LANGUAGES.find(l => l.code === selectedCode);
+    if (!lang) return interaction.update({ content: 'Invalid language selected.', components: [] });
+ 
+    setUserLanguage(userId, selectedCode);
+ 
+    const confirmMsg = `${lang.flag} Language set to **${lang.name}**! All my responses will now be in ${lang.name}.`;
+    const translated = await translate(confirmMsg, selectedCode);
+ 
+    return interaction.update({ content: translated, embeds: [], components: [] });
+  }
+ 
+  // ── Language Page Buttons ──────────────────────────────────────────────────
+  if (interaction.isButton() && interaction.customId.startsWith('lang_page_')) {
+    const page = parseInt(interaction.customId.replace('lang_page_', ''));
+    const components = buildLanguageMenu(page);
+    const langCode = getUserLanguage(userId);
+    const headerText = await translate('🌐 Choose your language:', langCode);
+    return interaction.update({ content: headerText, components });
+  }
+ 
+  if (!interaction.isChatInputCommand()) return;
+ 
+  const { commandName, user } = interaction;
+  const langCode = getUserLanguage(userId);
+  
   // /ping
   if (commandName === 'ping') {
     return interaction.reply({ content: 'im awake bro', ephemeral: false });
