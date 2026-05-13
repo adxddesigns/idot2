@@ -2,7 +2,29 @@ const { Client, GatewayIntentBits, REST, Routes, SlashCommandBuilder, EmbedBuild
 const { roasts } = require('./roasts');
 const { generateInsult } = require('./insult');
 require('dotenv').config();
-
+const {
+  Client,
+  GatewayIntentBits,
+  REST,
+  Routes,
+  SlashCommandBuilder,
+  EmbedBuilder,
+  ActionRowBuilder,
+  StringSelectMenuBuilder,
+  ButtonBuilder,
+  ButtonStyle,
+} = require('discord.js');
+const { roasts } = require('./roasts');
+const { generateInsult } = require('./insult');
+const {
+  SUPPORTED_LANGUAGES,
+  getUserLanguage,
+  setUserLanguage,
+  translate,
+  getLanguagePage,
+  getTotalPages,
+} = require('./language');
+require('dotenv').config();
 // ─── Client Setup ────────────────────────────────────────────────────────────
 const client = new Client({
   intents: [
