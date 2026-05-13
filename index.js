@@ -137,7 +137,7 @@ client.on('interactionCreate', async (interaction) => {
         '**Version:** `v1.1.0`',
         '**Status:** Discord API Adjustment',
         '',
-        'Fixed bugs regarding Discords API that was causing the hosting to shut down'
+        'Fixed bugs regarding Discords API that was causing the hosting to shut down',
         '',
         'The legend continues. The bar is low. We will limbo under it.',
       ].join('\n'))
