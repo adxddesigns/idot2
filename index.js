@@ -135,7 +135,7 @@ function buildLanguageMenu(page = 0) {
 // ─── Event: Ready ─────────────────────────────────────────────────────────────
 client.once('ready', () => {
   console.log(`✅ Idot 2 is online as ${client.user.tag}`);
-  client.user.setActivity('/help | v0.0.1', { type: 3 });
+  client.user.setActivity('/help | v1.2.0 ; Language Support', { type: 3 });
 });
 
 // ─── Event: Interaction ───────────────────────────────────────────────────────
