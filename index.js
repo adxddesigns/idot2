@@ -67,7 +67,7 @@ function getRandom(arr) {
 // ─── Event: Ready ─────────────────────────────────────────────────────────────
 client.once('ready', () => {
   console.log(`✅ Idot 2 is online as ${client.user.tag}`);
-  client.user.setActivity('/help | v0.0.1', { type: 3 }); // WATCHING
+  client.user.setActivity('/help | v1.0.0 :confetti:', { type: 3 }); // WATCHING
 });
 
 // ─── Event: Interaction ───────────────────────────────────────────────────────
@@ -134,8 +134,8 @@ client.on('interactionCreate', async (interaction) => {
       .setColor(0x5865F2)
       .setTitle('🤖 Idot 2 — Version Info')
       .setDescription([
-        '**Version:** `v0.0.1`',
-        '**Status:** Pre-release',
+        '**Version:** `v1.0.0`',
+        '**Status:** First Main Release',
         '',
         'Idot 2 is the current predecessor to the original **Idot Bot** — the beloved, chaotic, roast machine that thousands of servers called home.',
         '',
@@ -184,7 +184,7 @@ client.on('interactionCreate', async (interaction) => {
           inline: false,
         }
       )
-      .setFooter({ text: 'Idot 2 v0.0.1 • Predecessor to the legendary Idot Bot' })
+      .setFooter({ text: 'Idot 2 v1.0.0 • Predecessor to the legendary Idot Bot' })
       .setTimestamp();
     return interaction.reply({ embeds: [embed] });
   }
