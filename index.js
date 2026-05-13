@@ -214,7 +214,7 @@ client.on('interactionCreate', async (interaction) => {
       const member = await interaction.guild.members.fetch(target.id).catch(() => null);
       const insult = generateInsult(target, member);
       const translatedInsult = await translate(insult, langCode);
-      const title = await translate(`💀 ${target.username} has been cooked`, langCode);
+      const title = await translate(`Good Day ${target.username}, dickhead`, langCode);
 
       const embed = new EmbedBuilder()
         .setColor(0x9B59B6)
