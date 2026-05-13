@@ -67,7 +67,7 @@ function getRandom(arr) {
 // ─── Event: Ready ─────────────────────────────────────────────────────────────
 client.once('ready', () => {
   console.log(`✅ Idot 2 is online as ${client.user.tag}`);
-  client.user.setActivity('/help | v1.0.0', { type: 3 }); // WATCHING
+  client.user.setActivity('/help | v1.1.0', { type: 3 }); // WATCHING
 });
 
 // ─── Event: Interaction ───────────────────────────────────────────────────────
@@ -134,10 +134,10 @@ client.on('interactionCreate', async (interaction) => {
       .setColor(0x5865F2)
       .setTitle('🤖 Idot 2 — Version Info')
       .setDescription([
-        '**Version:** `v1.0.0`',
-        '**Status:** First Main Release',
+        '**Version:** `v1.1.0`',
+        '**Status:** Discord API Adjustment',
         '',
-        'Idot 2 is the current predecessor to the original **Idot Bot** — the beloved, chaotic, roast machine that thousands of servers called home.',
+        'Fixed bugs regarding Discords API that was causing the hosting to shut down'
         '',
         'The legend continues. The bar is low. We will limbo under it.',
       ].join('\n'))
