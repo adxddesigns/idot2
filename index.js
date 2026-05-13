@@ -1,7 +1,3 @@
-const { Client, GatewayIntentBits, REST, Routes, SlashCommandBuilder, EmbedBuilder } = require('discord.js');
-const { roasts } = require('./roasts');
-const { generateInsult } = require('./insult');
-require('dotenv').config();
 const {
   Client,
   GatewayIntentBits,
@@ -25,6 +21,7 @@ const {
   getTotalPages,
 } = require('./language');
 require('dotenv').config();
+ 
 // ─── Client Setup ────────────────────────────────────────────────────────────
 const client = new Client({
   intents: [
