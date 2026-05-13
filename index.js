@@ -237,10 +237,11 @@ client.on('interactionCreate', async (interaction) => {
     await interaction.deferReply();
 
     const bodyText = [
-      '**Version:** `v0.0.1`',
+      '**Version:** `v1.2.0`',
       '**Status:** Pre-release',
       '',
-      'Idot 2 is the current predecessor to the original **Idot Bot** — the beloved, chaotic, roast machine that thousands of servers called home.',
+      'V1.2.0: Added Mulilingual Support! All commands also translate to the language selected.',
+      'V1.1.0: Adjusted backend to work more smoothly with Discord API.',
       '',
       'The legend continues. The bar is low. We will limbo under it.',
     ].join('\n');
@@ -283,7 +284,7 @@ client.on('interactionCreate', async (interaction) => {
 
     const title = await translate('📖 Idot 2 — Command List', langCode);
     const desc = await translate("Here's everything I can do. Don't expect much.", langCode);
-    const footer = await translate('Idot 2 v0.0.1 • Predecessor to the legendary Idot Bot', langCode);
+    const footer = await translate('Idot 2 v1.2.0 • Predecessor to the legendary Idot Bot', langCode);
 
     const embed = new EmbedBuilder()
       .setColor(0x57F287)
