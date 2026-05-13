@@ -188,6 +188,19 @@ client.on('interactionCreate', async (interaction) => {
       .setTimestamp();
     return interaction.reply({ embeds: [embed] });
   }
+// ─── Languages ─────────────────────────────────────────────────────────────────────
+  if (commandName === 'language') {
+    const currentCode = getUserLanguage(userId);
+    const currentLang = SUPPORTED_LANGUAGES.find(l => l.code === currentCode);
+    const components = buildLanguageMenu(0);
+ 
+    const headerText = await translate(
+      `🌐 Choose your language:\n*Currently set to: ${currentLang?.flag} ${currentLang?.name || 'English'}*`,
+      currentCode
+    );
+ 
+    return interaction.reply({ content: headerText, components, ephemeral: true });
+  }
 });
 
 // ─── Boot ─────────────────────────────────────────────────────────────────────
