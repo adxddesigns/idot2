@@ -1,0 +1,23 @@
+{
+  "name": "idot2",
+  "version": "0.0.1",
+  "description": "Idot 2 — Predecessor to the legendary Idot Bot. A roast machine for the people.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.39.0",
+    "discord.js": "^14.16.3",
+    "dotenv": "^16.4.5"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "author": "Idot 2 Dev Team",
+  "license": "ISC"
+}
